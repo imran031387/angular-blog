@@ -1,0 +1,140 @@
+<!--<div id="sidebar">-->
+<!--<div class="inner">-->
+
+<!--&lt;!&ndash; Search &ndash;&gt;-->
+<!--<section id="search" class="alt">-->
+<!--<form method="post" action="#">-->
+<!--<input type="text" name="query" id="query" placeholder="Search" />-->
+<!--</form>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Menu &ndash;&gt;-->
+<!--<nav id="menu">-->
+<!--<header class="major">-->
+<!--<h2>Menu</h2>-->
+<!--</header>-->
+
+
+  <!--<ul _ngcontent-c6="">-->
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-for-of": "[object Object],[object Object"-->
+  <!--}&ndash;&gt;<li _ngcontent-c6="">-->
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "true"-->
+  <!--}&ndash;&gt;<a _ngcontent-c6="" href="/">Home</a>-->
+
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+  <!--</li><li _ngcontent-c6="">-->
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "true"-->
+  <!--}&ndash;&gt;<a _ngcontent-c6="" href="/">About Us</a>-->
+
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+  <!--</li><li _ngcontent-c6="">-->
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "true"-->
+  <!--}&ndash;&gt;<a _ngcontent-c6="" href="/">Contact Us</a>-->
+
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+  <!--</li><li _ngcontent-c6="">-->
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "false"-->
+  <!--}&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "true"-->
+  <!--}&ndash;&gt;<span _ngcontent-c6="" class="opener">Services</span>-->
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-if": "true"-->
+  <!--}&ndash;&gt;<ul _ngcontent-c6="">-->
+    <!--&lt;!&ndash;bindings={-->
+  <!--"ng-reflect-ng-for-of": "[object Object],[object Object"-->
+  <!--}&ndash;&gt;<li _ngcontent-c6=""><a _ngcontent-c6="" href="#">Marketing</a></li><li _ngcontent-c6=""><a _ngcontent-c6="" href="#">Human Resource</a></li>-->
+  <!--</ul>-->
+  <!--</li>-->
+
+  <!--</ul>-->
+
+
+
+
+
+<!--</nav>-->
+
+<!--&lt;!&ndash; Section &ndash;&gt;-->
+<!--<section>-->
+<!--<header class="major">-->
+<!--<h2>Get in touch</h2>-->
+<!--</header>-->
+<!--<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>-->
+<!--<ul class="contact">-->
+<!--<li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>-->
+<!--<li class="fa-phone">(000) 000-0000</li>-->
+<!--<li class="fa-home">1234 Somewhere Road #8254<br />-->
+<!--Nashville, TN 00000-0000</li>-->
+<!--</ul>-->
+<!--</section>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+
+
+<div id="sidebar">
+  <div class="inner">
+
+    <!-- Search -->
+    <section id="search" class="alt">
+      <form method="post" action="#">
+        <input type="text" name="query" id="query" placeholder="Search" />
+      </form>
+    </section>
+
+    <!-- Menu -->
+    <nav id="menu">
+      <header class="major">
+        <h2>Menu</h2>
+      </header>
+      <ul>
+        <li *ngFor="let item of menu let i = index">
+          <!--main-menu items-->
+          <a *ngIf="!item.has_children" href="{{item.link.url}}">{{item.link.title}}</a>
+
+          <!--sub-menu items-->
+          <span *ngIf="item.has_children" class="opener">{{item.link.title}}</span>
+          <ul *ngIf="item.has_children">
+            <li *ngFor="let subitem of item.subtree let i = index"><a href="#">{{subitem.link.title}}</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+
+     <!--Section -->
+      <section [innerHTML]="block.attributes.body.value"></section>
+  </div>
+</div>

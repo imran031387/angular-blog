@@ -1,0 +1,15 @@
+<section>
+  <header class="major">
+    <h2>Latest Blog Posts.</h2>
+  </header>
+  <div class="posts">
+    <article *ngFor="let post of posts let i = index" >
+      <a href="#" class="image"><img src="../assets/images/pic01.jpg" alt="" /></a>
+      <h3>{{post.attributes.title}}</h3>
+      <div [innerHTML]="post.attributes.body.value"></div>
+      <ul class="actions">
+        <li><a href="#" class="button">More</a></li>
+      </ul>
+    </article>
+  </div>
+</section>
